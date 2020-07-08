@@ -98,38 +98,42 @@ class Navbar extends Component {
                 </Link>
               </Fragment>
             ) : (
-                <div>
-                  <MDBNavItem>
-                    <MDBDropdown dropleft>
-                      <MDBDropdownToggle nav caret>
-                        <img
-                          className='avatar_img_navbar'
-                          src={this.props.user.image_url}
-                          alt=''
-                        />
-                      </MDBDropdownToggle>
-                      <MDBDropdownMenu className='dropdown-default'>
-                        <MDBDropdownItem href='/profile' size='sm'>
-                          <div style={{ textTransform: "capitalize" }}>
-                            {this.props.user.name}
-                          </div>
-                        </MDBDropdownItem>
-                        <MDBDropdownItem
-                          href='/create'
-                          size='sm'
-                          loginData={this.props.login}>
-                          Create Post
+              <div>
+                <MDBNavItem>
+                  <MDBDropdown dropleft>
+                    <MDBDropdownToggle nav caret>
+                      <img
+                        className='avatar_img_navbar'
+                        src={
+                          this.props.user.image_url
+                            ? this.props.user.image_url
+                            : "https://cdn.dribbble.com/users/446910/screenshots/10953246/avatar-dribble_1x.png"
+                        }
+                        alt=''
+                      />
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu className='dropdown-default'>
+                      <MDBDropdownItem href='/profile' size='sm'>
+                        <div style={{ textTransform: "capitalize" }}>
+                          {this.props.user.name}
+                        </div>
                       </MDBDropdownItem>
-                        <MDBDropdownItem
-                          onClick={() => this.props.logoutAgain()}
-                          size='sm'>
-                          Logout
+                      <MDBDropdownItem
+                        href='/create'
+                        size='sm'
+                        loginData={this.props.login}>
+                        Create Post
                       </MDBDropdownItem>
-                      </MDBDropdownMenu>
-                    </MDBDropdown>
-                  </MDBNavItem>
-                </div>
-              )}
+                      <MDBDropdownItem
+                        onClick={() => this.props.logoutAgain()}
+                        size='sm'>
+                        Logout
+                      </MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                </MDBNavItem>
+              </div>
+            )}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>

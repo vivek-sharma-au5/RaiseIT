@@ -20,7 +20,7 @@ follow.search_users = async (req, res) => {
   const users = await userModel.signup.find(
     { name: { $regex: regex } },
     function (err, data) {
-      res.send(data);
+      res.json(data);
       // console.log(data);
     }
   );

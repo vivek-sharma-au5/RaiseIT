@@ -60,14 +60,16 @@ function userReducer(state = userdata, action) {
 
     case "SEARCH_RESULTS":
       const resultArray2 = action.payload;
+
       for (let i in action.payload) {
         if (resultArray2[i].email === stateCopy.user.email) {
           resultArray2.splice(i, 1);
           console.log("filteredAry2", resultArray2);
-          stateCopy.searched_users = resultArray2;
           break;
         }
       }
+      stateCopy.searched_users = resultArray2;
+      console.log("ResARR", stateCopy.searched_users);
 
       return stateCopy;
 
